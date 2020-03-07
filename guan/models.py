@@ -44,3 +44,18 @@ class GuanInfo(models.Model):
 
     def __unicode__(self):
         return self.question
+
+
+class AnswerInfo(models.Model):
+    guan = models.ForeignKey(GuanGuan)
+    guan_info = models.ForeignKey(GuanInfo)
+    answer_key = models.CharField(max_length=200)
+    answer_evaluation = models.CharField(max_length=50)
+    created_time = models.DateTimeField(default=datetime.now)
+    updated_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "answer_info"
+
+    def __unicode__(self):
+        return self.answer_key

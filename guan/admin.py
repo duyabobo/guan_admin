@@ -3,9 +3,10 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
+from models import AnswerInfo
 from models import GuanGuan
-from models import GuanType
 from models import GuanInfo
+from models import GuanType
 
 
 class GuanTypeAdmin(admin.ModelAdmin):
@@ -26,6 +27,13 @@ class GuanInfoAdmin(admin.ModelAdmin):
     search_fields = ('question',)
 
 
+class AnswerInfoAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_time', 'updated_time')
+    list_display = ('guan', 'guan_info', 'answer_key', 'answer_evaluation')
+    search_fields = ('answer_key',)
+
+
 admin.site.register(GuanType, GuanTypeAdmin)
 admin.site.register(GuanGuan, GuanGuanAdmin)
 admin.site.register(GuanInfo, GuanInfoAdmin)
+admin.site.register(AnswerInfo, AnswerInfoAdmin)
