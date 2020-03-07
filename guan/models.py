@@ -63,7 +63,6 @@ class AnswerInfo(models.Model):
 
 class OfflineMeeting(models.Model):
     guan = models.ForeignKey(GuanGuan)
-    guan_info = models.ForeignKey(GuanInfo)
     time = models.DateTimeField(default=datetime.now)
     address = models.CharField(max_length=200)
     latitude = models.FloatField()
