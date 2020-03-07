@@ -31,3 +31,16 @@ class GuanGuan(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class GuanInfo(models.Model):
+    question = models.CharField(max_length=200)
+    guan = models.ForeignKey(GuanGuan)
+    created_time = models.DateTimeField(default=datetime.now)
+    updated_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "guan_info"
+
+    def __unicode__(self):
+        return self.question

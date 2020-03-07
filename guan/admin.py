@@ -5,6 +5,7 @@ from django.contrib import admin
 
 from models import GuanGuan
 from models import GuanType
+from models import GuanInfo
 
 
 class GuanTypeAdmin(admin.ModelAdmin):
@@ -19,5 +20,12 @@ class GuanGuanAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
+class GuanInfoAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_time', 'updated_time')
+    list_display = ('question', 'guan')
+    search_fields = ('question',)
+
+
 admin.site.register(GuanType, GuanTypeAdmin)
 admin.site.register(GuanGuan, GuanGuanAdmin)
+admin.site.register(GuanInfo, GuanInfoAdmin)
