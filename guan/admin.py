@@ -6,6 +6,7 @@ from django.contrib import admin
 from models import AnswerInfo
 from models import GuanGuan
 from models import GuanInfo
+from models import GuanPoint
 from models import GuanType
 from models import OfflineMeeting
 
@@ -40,8 +41,14 @@ class OfflineMeetingAdmin(admin.ModelAdmin):
     search_fields = ('answer_key',)
 
 
+class GuanPointAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_time', 'updated_time')
+    list_display = ('id', 'guan', 'guan_point', 'user_id')
+
+
 admin.site.register(GuanType, GuanTypeAdmin)
 admin.site.register(GuanGuan, GuanGuanAdmin)
 admin.site.register(GuanInfo, GuanInfoAdmin)
 admin.site.register(AnswerInfo, AnswerInfoAdmin)
 admin.site.register(OfflineMeeting, OfflineMeetingAdmin)
+admin.site.register(GuanPoint, GuanPointAdmin)

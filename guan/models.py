@@ -75,3 +75,14 @@ class OfflineMeeting(models.Model):
 
     def __unicode__(self):
         return self.address
+
+
+class GuanPoint(models.Model):
+    guan = models.ForeignKey(GuanGuan)
+    guan_point = models.IntegerField()
+    user_id = models.IntegerField()
+    created_time = models.DateTimeField(default=datetime.now)
+    updated_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "guan_point"
