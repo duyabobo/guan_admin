@@ -18,25 +18,25 @@ class GuanTypeAdmin(admin.ModelAdmin):
 
 class GuanGuanAdmin(admin.ModelAdmin):
     readonly_fields = ('created_time', 'updated_time')
-    list_display = ('name', 'guan_type', 'guan_point', 'status')
+    list_display = ('id', 'name', 'guan_type', 'guan_point', 'status')
     search_fields = ('name',)
 
 
 class GuanInfoAdmin(admin.ModelAdmin):
     readonly_fields = ('created_time', 'updated_time')
-    list_display = ('question', 'guan')
+    list_display = ('id', 'question', 'guan')
     search_fields = ('question',)
 
 
 class AnswerInfoAdmin(admin.ModelAdmin):
     readonly_fields = ('created_time', 'updated_time')
-    list_display = ('guan', 'guan_info', 'answer_key', 'answer_evaluation')
+    list_display = ('id', 'guan', 'guan_info', 'answer_key', 'answer_evaluation')
     search_fields = ('answer_key',)
 
 
 class OfflineMeetingAdmin(admin.ModelAdmin):
     readonly_fields = ('created_time', 'updated_time')
-    list_display = ('guan', 'time', 'address', 'latitude', 'longitude')
+    list_display = ('id', 'guan', 'time', 'address', 'latitude', 'longitude')
     search_fields = ('answer_key',)
 
 
