@@ -7,11 +7,12 @@ from models import AnswerInfo
 from models import GuanGuan
 from models import GuanInfo
 from models import GuanType
+from models import OfflineMeeting
 
 
 class GuanTypeAdmin(admin.ModelAdmin):
     readonly_fields = ('created_time', 'updated_time')
-    list_display = ('name', 'created_time', 'updated_time')
+    list_display = ('id', 'name', 'created_time', 'updated_time')
     search_fields = ('name',)
 
 
@@ -33,7 +34,14 @@ class AnswerInfoAdmin(admin.ModelAdmin):
     search_fields = ('answer_key',)
 
 
+class OfflineMeetingAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_time', 'updated_time')
+    list_display = ('guan', 'time', 'address', 'latitude', 'longitude')
+    search_fields = ('answer_key',)
+
+
 admin.site.register(GuanType, GuanTypeAdmin)
 admin.site.register(GuanGuan, GuanGuanAdmin)
 admin.site.register(GuanInfo, GuanInfoAdmin)
 admin.site.register(AnswerInfo, AnswerInfoAdmin)
+admin.site.register(OfflineMeeting, OfflineMeetingAdmin)

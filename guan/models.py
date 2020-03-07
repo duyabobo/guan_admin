@@ -59,3 +59,20 @@ class AnswerInfo(models.Model):
 
     def __unicode__(self):
         return self.answer_key
+
+
+class OfflineMeeting(models.Model):
+    guan = models.ForeignKey(GuanGuan)
+    guan_info = models.ForeignKey(GuanInfo)
+    time = models.DateTimeField(default=datetime.now)
+    address = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    created_time = models.DateTimeField(default=datetime.now)
+    updated_time = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = "offline_meeting"
+
+    def __unicode__(self):
+        return self.address
