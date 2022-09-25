@@ -2,4 +2,4 @@
 .idea/*
 db*
 venv/*
-guan_admin/settings.py
+guan/migrations/
