@@ -5,6 +5,8 @@ from datetime import datetime
 
 from django.db import models
 
+from guan.qiniu_cdn import MyStorage
+
 
 class Region(models.Model):
     province = models.CharField(max_length=128)
@@ -27,6 +29,7 @@ class Address(models.Model):
     region = models.ForeignKey(Region)
     longitude = models.FloatField()
     latitude = models.FloatField()
+    img = models.ImageField(storage=MyStorage())
     status = models.IntegerField(default=1)
     create_time = models.DateTimeField(default=datetime.now)
     update_time = models.DateTimeField(auto_now_add=True)
