@@ -29,7 +29,7 @@ class Address(models.Model):
     region = models.ForeignKey(Region)
     longitude = models.FloatField()
     latitude = models.FloatField()
-    img = models.ImageField(storage=MyStorage())
+    img_obj_name = models.ImageField(storage=MyStorage())
     status = models.IntegerField(default=1)
     create_time = models.DateTimeField(default=datetime.now)
     update_time = models.DateTimeField(auto_now_add=True)
